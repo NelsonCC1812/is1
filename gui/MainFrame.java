@@ -4,8 +4,6 @@
  */
 package gui;
 
-import gui.reserve.ConsultReserve;
-import gui.reserve.ConsultScheduleFrame;
 import model.Model;
 
 /**

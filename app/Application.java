@@ -21,8 +21,6 @@ public class Application {
 
         MainFrame gui = new MainFrame(model); // se uso de esta forma ya que especificaron que existiera solo un objeto
                                               // de interfaz grafica;
-
-        System.out.println(model.vehicles());
     }
 
     public static void inicializar_modelo(Model model) {

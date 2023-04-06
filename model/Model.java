@@ -165,8 +165,8 @@ public class Model {
 
     // *=> locations
 
-    public List<String> locations() {
-        return Arrays.asList(Location.values()).stream().map(elm -> elm.name()).toList();
+    public List<Location> locations() {
+        return Arrays.asList(Location.values()).stream().map(elm -> elm).toList();
     }
 
     public Location location(String name) {
@@ -179,10 +179,10 @@ public class Model {
 
     // *=> vehicles
 
-    public List<String> vehicles() {
-        List<Vehicle> lst = Arrays.asList(Vehicle.values());
+    public List<Vehicle> vehicles() {
+        List<Vehicle> lst = new ArrayList<>(Arrays.asList(Vehicle.values()));
         lst.remove(Vehicle.NULL);
-        return lst.stream().map(elm -> elm.name()).toList();
+        return lst.stream().map(elm -> elm).toList();
     }
 
     public Vehicle vehicle(String name) {

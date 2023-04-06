@@ -1,8 +1,12 @@
 package gui;
 
+import java.time.LocalDateTime;
+
 import javax.swing.JFrame;
 
 import model.Model;
+import model.enums.Location;
+import model.enums.Vehicle;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -75,20 +79,26 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
                 jLabel6.setText("destino");
 
-                cbxfrom.setModel(
-                                new javax.swing.DefaultComboBoxModel<>((String[]) model.locations().toArray()));
+                cbxfrom.setModel(new javax.swing.DefaultComboBoxModel<>(
+                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
 
-                cbxto.setModel(new javax.swing.DefaultComboBoxModel<>((String[]) model.locations().toArray()));
+                cbxto.setModel(new javax.swing.DefaultComboBoxModel<>(
+                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
 
                 jLabel7.setText("fecha ida:");
 
                 jLabel8.setText("fecha vuelta:");
 
                 cbxfromDate.setModel(
-                                new javax.swing.DefaultComboBoxModel<>((String[]) model.travelsDateFrom().toArray()));
+                                new javax.swing.DefaultComboBoxModel<>(
+                                                (LocalDateTime[]) model.travelsDateFrom()
+                                                                .toArray(new LocalDateTime[model.travelsDateFrom()
+                                                                                .size()])));
 
                 cbxtoDate.setModel(
-                                new javax.swing.DefaultComboBoxModel<>((String[]) model.travelsDateFrom().toArray()));
+                                new javax.swing.DefaultComboBoxModel<>(
+                                                (LocalDateTime[]) model.travelsDateFrom().toArray(
+                                                                new LocalDateTime[model.travelsDateFrom().size()])));
 
                 btnconfirn.setText("Confirmar");
                 btnconfirn.addActionListener(new java.awt.event.ActionListener() {
@@ -106,7 +116,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
                 jLabel9.setText("numero de pasajeros:");
 
-                txtfpassengersNumber.setText("jTextField1");
+                txtfpassengersNumber.setText("0");
                 txtfpassengersNumber.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 txtfpassengersNumberActionPerformed(evt);
@@ -123,7 +133,8 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                 jLabel10.setText("vehículo:");
 
                 cbxvehicle.setModel(
-                                new javax.swing.DefaultComboBoxModel<>((String[]) model.vehicles().toArray()));
+                                new javax.swing.DefaultComboBoxModel<>((Vehicle[]) model.vehicles()
+                                                .toArray(new Vehicle[model.vehicles().size()])));
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
@@ -387,11 +398,11 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JButton btncancel;
         private javax.swing.JButton btnconfirn;
-        private javax.swing.JComboBox<String> cbxfrom;
-        private javax.swing.JComboBox<String> cbxfromDate;
-        private javax.swing.JComboBox<String> cbxto;
-        private javax.swing.JComboBox<String> cbxtoDate;
-        private javax.swing.JComboBox<String> cbxvehicle;
+        private javax.swing.JComboBox<Location> cbxfrom;
+        private javax.swing.JComboBox<LocalDateTime> cbxfromDate;
+        private javax.swing.JComboBox<Location> cbxto;
+        private javax.swing.JComboBox<LocalDateTime> cbxtoDate;
+        private javax.swing.JComboBox<Vehicle> cbxvehicle;
         private javax.swing.JCheckBox chxoneWayOnly;
         private javax.swing.JLabel jLabel1;
         private javax.swing.JLabel jLabel10;

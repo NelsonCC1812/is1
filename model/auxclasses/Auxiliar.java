@@ -15,7 +15,7 @@ public class Auxiliar {
     public static boolean isEmail(String email) {
         return Pattern
                 .compile(
-                        "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")
-                .matcher(email).find();
+                        "^[\\w!#$%&amp;'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&amp;'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")
+                .matcher(email).matches();
     }
 }

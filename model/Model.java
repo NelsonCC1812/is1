@@ -79,6 +79,12 @@ public class Model {
         return this.travels.stream().map(elm -> elm.date()).distinct().filter(elm -> elm.compareTo(date) > 0).toList();
     }
 
+    public Journey findJourneyByFromAndTo(Location from, Location to) {
+        return Arrays.asList(Journey.values()).stream()
+                .filter(elm -> (from.equals(elm.from()) && to.equals(elm.to())))
+                .toList().get(0);
+    }
+
     // *=> complaints
 
     public List<Complaint> complaints() {
@@ -181,7 +187,6 @@ public class Model {
 
     public List<Vehicle> vehicles() {
         List<Vehicle> lst = new ArrayList<>(Arrays.asList(Vehicle.values()));
-        lst.remove(Vehicle.NULL);
         return lst.stream().map(elm -> elm).toList();
     }
 

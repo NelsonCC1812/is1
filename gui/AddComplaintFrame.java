@@ -4,6 +4,8 @@
  */
 package gui;
 
+import java.util.List;
+
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
@@ -17,12 +19,12 @@ import model.complaint.Complaint;
 public class AddComplaintFrame extends javax.swing.JFrame {
 
         private Model model;
-        private JFrame ctx;
+        private List<JFrame> ctx;
 
         /**
          * Creates new form AddComplaint
          */
-        public AddComplaintFrame(Model model, JFrame ctx) {
+        public AddComplaintFrame(Model model, List<JFrame> ctx) {
                 this.model = model;
                 this.ctx = ctx;
                 initComponents();
@@ -235,6 +237,9 @@ public class AddComplaintFrame extends javax.swing.JFrame {
                                                 txtfname.getText().trim(),
                                                 txtfemail.getText().trim(),
                                                 jTextArea1.getText().trim()));
+
+                                this.ctx.get(0).setVisible(true);
+                                this.dispose();
 
                         } catch (Exception err) {
                                 txtmsg.setText("Introduzca un email valido ");

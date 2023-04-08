@@ -4,6 +4,11 @@
  */
 package gui;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JFrame;
+
 import model.Model;
 
 /**
@@ -123,20 +128,24 @@ public class MainFrame extends javax.swing.JFrame {
 
                 lblname.setText(model.company().name());
 
+                List<JFrame> ctx = new ArrayList<>();
+                ctx.add(this);
+
                 btntravel.addActionListener(e -> {
                         this.setVisible(false);
-                        ConsultScheduleFrame frame = new ConsultScheduleFrame(model, this);
+
+                        ConsultScheduleFrame frame = new ConsultScheduleFrame(model, ctx);
                         frame.setVisible(true);
                 });
                 btnconsultReservation.addActionListener(e -> {
                         this.setVisible(false);
-                        ConsultReserve frame = new ConsultReserve(model, this);
+                        ConsultReserve frame = new ConsultReserve(model, ctx);
                         frame.setVisible(true);
 
                 });
                 btnaddOpinion.addActionListener(e -> {
                         this.setVisible(false);
-                        AddComplaintFrame frame = new AddComplaintFrame(model, this);
+                        AddComplaintFrame frame = new AddComplaintFrame(model, ctx);
                         frame.setVisible(true);
                 });
 

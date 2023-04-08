@@ -1,12 +1,20 @@
 package gui;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.plaf.basic.BasicSliderUI.TrackListener;
 
 import model.Model;
+import model.enums.Journey;
 import model.enums.Location;
 import model.enums.Vehicle;
+import model.reservation.Reservation;
+import model.reservation.Ticket;
+import model.reservation.Travel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -20,14 +28,14 @@ import model.enums.Vehicle;
 public class ConsultScheduleFrame extends javax.swing.JFrame {
 
         private Model model;
-        private JFrame cbx;
+        private List<JFrame> ctx;
 
         /**
          * Creates new form CreateReserve
          */
-        public ConsultScheduleFrame(Model model, JFrame ctx) {
+        public ConsultScheduleFrame(Model model, List<JFrame> ctx) {
                 this.model = model;
-                this.cbx = ctx;
+                this.ctx = ctx;
                 initComponents();
         }
 
@@ -116,7 +124,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
                 jLabel9.setText("numero de pasajeros:");
 
-                txtfpassengersNumber.setText("0");
+                txtfpassengersNumber.setText("1");
                 txtfpassengersNumber.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 txtfpassengersNumberActionPerformed(evt);
@@ -321,6 +329,61 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                                                                                 Short.MAX_VALUE))
                                                                 .addContainerGap()));
 
+                // *=> Action Listeners
+
+                btncancel.addActionListener(e -> {
+                        this.ctx.get(0).setVisible(true);
+                        this.dispose();
+                });
+
+                btnconfirn.addActionListener(e -> {
+                        if (((Location) this.cbxfrom.getSelectedItem())
+                                        .equals((Location) this.cbxto.getSelectedItem())) {
+                                return; // Ida y vuelta no pueden ser iguales
+                        }
+
+                        if (((LocalDateTime) this.cbxfromDate.getSelectedItem())
+                                        .isAfter(((LocalDateTime) this.cbxtoDate.getSelectedItem()))) {
+                                return;
+                        }
+
+                        LocalDateTime dateFrom = (LocalDateTime) cbxfromDate.getSelectedItem();
+                        LocalDateTime dateTo = (LocalDateTime) cbxtoDate.getSelectedItem();
+
+                        Location from = (Location) cbxfrom.getSelectedItem();
+                        Location to = (Location) cbxto.getSelectedItem();
+
+                        HashSet<Ticket> tickets = new HashSet<>();
+
+                        for (int i = 0; i < Integer.parseInt(this.txtfpassengersNumber.getText()); i++) {
+
+                                Travel departure = this.model.travels()
+                                                .stream()
+                                                .filter(elm -> elm.date().equals(dateFrom)
+                                                                && elm.journey().equals(
+                                                                                model.findJourneyByFromAndTo(from, to)))
+                                                .toList().get(0);
+
+                                Travel comeback = this.model
+                                                .travels()
+                                                .stream()
+                                                .filter(elm -> elm.date().equals(dateFrom)
+                                                                && elm.journey().equals(
+                                                                                model.findJourneyByFromAndTo(from, to)))
+                                                .toList().get(0);
+
+                                tickets.add(new Ticket(null, null, departure,
+                                                !chxoneWayOnly.isEnabled() ? comeback : null));
+
+                        }
+
+                        this.ctx.add(this);
+                        this.setVisible(false);
+                        JFrame frame = !chxoneWayOnly.isEnabled() ? new AddTicketsFrame(model, ctx, tickets)
+                                        : new AddTicketsOneWayOnlyFrame(model, ctx, tickets);
+                        frame.setVisible(true);
+                });
+
                 pack();
         }// </editor-fold>//GEN-END:initComponents
 
@@ -333,7 +396,6 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
         }// GEN-LAST:event_btncancelActionPerformed
 
         private void txtfpassengersNumberActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtfpassengersNumberActionPerformed
-                // TODO add your handling code here:
         }// GEN-LAST:event_txtfpassengersNumberActionPerformed
 
         private void chxoneWayOnlyActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_chxoneWayOnlyActionPerformed

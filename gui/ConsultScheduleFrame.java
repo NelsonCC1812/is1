@@ -337,15 +337,6 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                 });
 
                 btnconfirn.addActionListener(e -> {
-                        if (((Location) this.cbxfrom.getSelectedItem())
-                                        .equals((Location) this.cbxto.getSelectedItem())) {
-                                return; // Ida y vuelta no pueden ser iguales
-                        }
-
-                        if (((LocalDateTime) this.cbxfromDate.getSelectedItem())
-                                        .isAfter(((LocalDateTime) this.cbxtoDate.getSelectedItem()))) {
-                                return;
-                        }
 
                         LocalDateTime dateFrom = (LocalDateTime) cbxfromDate.getSelectedItem();
                         LocalDateTime dateTo = (LocalDateTime) cbxtoDate.getSelectedItem();
@@ -353,24 +344,23 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                         Location from = (Location) cbxfrom.getSelectedItem();
                         Location to = (Location) cbxto.getSelectedItem();
 
+                        if (from.equals(to)) {
+                                return; // Ida y vuelta no pueden ser iguales
+                        }
+
+                        if (dateFrom.isAfter(dateTo)) {
+                                return;
+                        }
+
                         HashSet<Ticket> tickets = new HashSet<>();
 
                         for (int i = 0; i < Integer.parseInt(this.txtfpassengersNumber.getText()); i++) {
 
-                                Travel departure = this.model.travels()
-                                                .stream()
-                                                .filter(elm -> elm.date().equals(dateFrom)
-                                                                && elm.journey().equals(
-                                                                                model.findJourneyByFromAndTo(from, to)))
-                                                .toList().get(0);
+                                Travel departure = new Travel(dateFrom, 120, model.findJourneyByFromAndTo(from, to),
+                                                null);
 
-                                Travel comeback = this.model
-                                                .travels()
-                                                .stream()
-                                                .filter(elm -> elm.date().equals(dateFrom)
-                                                                && elm.journey().equals(
-                                                                                model.findJourneyByFromAndTo(from, to)))
-                                                .toList().get(0);
+                                Travel comeback = new Travel(dateTo, 120, model.findJourneyByFromAndTo(from, to), null);
+                                ;
 
                                 tickets.add(new Ticket(null, null, departure,
                                                 !chxoneWayOnly.isEnabled() ? comeback : null));

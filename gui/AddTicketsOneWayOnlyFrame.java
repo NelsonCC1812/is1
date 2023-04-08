@@ -33,6 +33,7 @@ public class AddTicketsOneWayOnlyFrame extends javax.swing.JFrame {
         this.model = model;
         this.ctx = ctx;
         this.tickets = tickets;
+        initComponents();
     }
 
     /**

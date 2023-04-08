@@ -34,6 +34,7 @@ public class AddTicketsFrame extends javax.swing.JFrame {
         this.model = model;
         this.ctx = ctx;
         this.tickets = tickets;
+        initComponents();
     }
 
     /**

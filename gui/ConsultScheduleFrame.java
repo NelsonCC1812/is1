@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.plaf.basic.BasicSliderUI.TrackListener;
 
 import model.Model;
@@ -76,6 +77,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                 jLabel10 = new javax.swing.JLabel();
                 cbxvehicle = new javax.swing.JComboBox<>();
                 jLabel11 = new javax.swing.JLabel();
+                errorMsg = jLabel11;
 
                 jLabel2.setText("jLabel2");
 
@@ -319,6 +321,10 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
         public void initThings() {
 
+                errorMsg.setText("");
+
+                this.txtfpassengersNumber.setText("0");
+
                 cbxfromDate.setModel(
                                 new javax.swing.DefaultComboBoxModel<>(
                                                 (LocalDateTime[]) model.travelsDateFrom()
@@ -349,6 +355,8 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
                 btnconfirn.addActionListener(e -> {
 
+                        this.errorMsg.setText("");
+
                         LocalDateTime dateFrom = (LocalDateTime) cbxfromDate.getSelectedItem();
                         LocalDateTime dateTo = (LocalDateTime) cbxtoDate.getSelectedItem();
 
@@ -356,11 +364,11 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                         Location to = (Location) cbxto.getSelectedItem();
 
                         if (from.equals(to)) {
-                                return; // Ida y vuelta no pueden ser iguales
+                                errorMsg.setText("Origen == destino");
                         }
 
-                        if (dateFrom.isAfter(dateTo)) {
-                                return;
+                        if (dateTo.isAfter(dateFrom)) {
+                                errorMsg.setText("dateFrom > dateTo");
                         }
 
                         HashSet<Ticket> tickets = new HashSet<>();
@@ -379,10 +387,11 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                         }
 
                         this.ctx.add(this);
-                        this.setVisible(false);
-                        JFrame frame = !chxoneWayOnly.isEnabled() ? new AddTicketsFrame(model, ctx, tickets)
-                                        : new AddTicketsOneWayOnlyFrame(model, ctx, tickets);
-                        frame.setVisible(true);
+                        // this.setVisible(false);
+                        // JFrame frame = !chxoneWayOnly.isEnabled() ? new AddTicketsFrame(model, ctx,
+                        // tickets)
+                        // : new AddTicketsOneWayOnlyFrame(model, ctx, tickets);
+                        // frame.setVisible(true);
                 });
         }
 
@@ -468,6 +477,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
         private javax.swing.JLabel jLabel1;
         private javax.swing.JLabel jLabel10;
         private javax.swing.JLabel jLabel11; // ERROR
+        private JLabel errorMsg;
         private javax.swing.JLabel jLabel2;
         private javax.swing.JLabel jLabel3;
         private javax.swing.JLabel jLabel4;

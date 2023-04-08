@@ -37,6 +37,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                 this.model = model;
                 this.ctx = ctx;
                 initComponents();
+                initThings();
         }
 
         public ConsultScheduleFrame() {
@@ -87,26 +88,9 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
                 jLabel6.setText("destino");
 
-                cbxfrom.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
-
-                cbxto.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
-
                 jLabel7.setText("fecha ida:");
 
                 jLabel8.setText("fecha vuelta:");
-
-                cbxfromDate.setModel(
-                                new javax.swing.DefaultComboBoxModel<>(
-                                                (LocalDateTime[]) model.travelsDateFrom()
-                                                                .toArray(new LocalDateTime[model.travelsDateFrom()
-                                                                                .size()])));
-
-                cbxtoDate.setModel(
-                                new javax.swing.DefaultComboBoxModel<>(
-                                                (LocalDateTime[]) model.travelsDateFrom().toArray(
-                                                                new LocalDateTime[model.travelsDateFrom().size()])));
 
                 btnconfirn.setText("Confirmar");
                 btnconfirn.addActionListener(new java.awt.event.ActionListener() {
@@ -139,10 +123,6 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                 });
 
                 jLabel10.setText("vehículo:");
-
-                cbxvehicle.setModel(
-                                new javax.swing.DefaultComboBoxModel<>((Vehicle[]) model.vehicles()
-                                                .toArray(new Vehicle[model.vehicles().size()])));
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
@@ -329,6 +309,32 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                                                                                 Short.MAX_VALUE))
                                                                 .addContainerGap()));
 
+                pack();
+        }// </editor-fold>//GEN-END:initComponents
+
+        public void initThings() {
+
+                cbxfromDate.setModel(
+                                new javax.swing.DefaultComboBoxModel<>(
+                                                (LocalDateTime[]) model.travelsDateFrom()
+                                                                .toArray(new LocalDateTime[model.travelsDateFrom()
+                                                                                .size()])));
+
+                cbxtoDate.setModel(
+                                new javax.swing.DefaultComboBoxModel<>(
+                                                (LocalDateTime[]) model.travelsDateFrom().toArray(
+                                                                new LocalDateTime[model.travelsDateFrom().size()])));
+
+                cbxfrom.setModel(new javax.swing.DefaultComboBoxModel<>(
+                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
+
+                cbxto.setModel(new javax.swing.DefaultComboBoxModel<>(
+                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
+
+                cbxvehicle.setModel(
+                                new javax.swing.DefaultComboBoxModel<>((Vehicle[]) model.vehicles()
+                                                .toArray(new Vehicle[model.vehicles().size()])));
+
                 // *=> Action Listeners
 
                 btncancel.addActionListener(e -> {
@@ -373,9 +379,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                         : new AddTicketsOneWayOnlyFrame(model, ctx, tickets);
                         frame.setVisible(true);
                 });
-
-                pack();
-        }// </editor-fold>//GEN-END:initComponents
+        }
 
         private void btnconfirnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnconfirnActionPerformed
 

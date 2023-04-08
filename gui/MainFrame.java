@@ -22,6 +22,7 @@ public class MainFrame extends javax.swing.JFrame {
         public MainFrame(Model model) {
                 this.model = model;
                 initComponents();
+                initThings();
                 this.setVisible(true);
         }
 
@@ -124,6 +125,12 @@ public class MainFrame extends javax.swing.JFrame {
                                                                                                 Short.MAX_VALUE))
                                                                 .addGap(125, 125, 125)));
 
+                pack();
+
+        }// </editor-fold>//GEN-END:initComponents
+
+        public void initThings() {
+
                 // *=> code
 
                 lblname.setText(model.company().name());
@@ -148,10 +155,7 @@ public class MainFrame extends javax.swing.JFrame {
                         AddComplaintFrame frame = new AddComplaintFrame(model, ctx);
                         frame.setVisible(true);
                 });
-
-                pack();
-
-        }// </editor-fold>//GEN-END:initComponents
+        }
 
         /**
          * @param args the command line arguments

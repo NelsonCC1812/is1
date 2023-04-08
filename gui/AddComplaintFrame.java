@@ -28,6 +28,7 @@ public class AddComplaintFrame extends javax.swing.JFrame {
                 this.model = model;
                 this.ctx = ctx;
                 initComponents();
+                initThings();
         }
 
         public AddComplaintFrame() {
@@ -227,6 +228,10 @@ public class AddComplaintFrame extends javax.swing.JFrame {
                                                                                 .addComponent(txtmsg))
                                                                 .addContainerGap(10, Short.MAX_VALUE)));
 
+                pack();
+        }// </editor-fold>//GEN-END:initComponents
+
+        void initThings() {
                 txtmsg.setText("");
 
                 btnpublish.addActionListener(e -> {
@@ -245,9 +250,7 @@ public class AddComplaintFrame extends javax.swing.JFrame {
                                 txtmsg.setText("Introduzca un email valido ");
                         }
                 });
-
-                pack();
-        }// </editor-fold>//GEN-END:initComponents
+        }
 
         private void txtfnameActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtfnameActionPerformed
                 // TODO add your handling code here:

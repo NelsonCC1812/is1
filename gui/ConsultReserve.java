@@ -17,18 +17,14 @@ import model.Model;
 public class ConsultReserve extends javax.swing.JFrame {
 
         private Model model;
-        private List<JFrame> ctx;
+        private JFrame ctx;
 
         /**
          * Creates new form ConsultReserve
          */
-        public ConsultReserve(Model model, List<JFrame> ctx) {
+        public ConsultReserve(Model model, JFrame ctx) {
                 this.model = model;
                 this.ctx = ctx;
-                initComponents();
-        }
-
-        public ConsultReserve() {
                 initComponents();
         }
 

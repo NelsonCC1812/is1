@@ -1,20 +1,18 @@
 package gui;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
+
 import java.util.HashSet;
 import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.plaf.basic.BasicSliderUI.TrackListener;
 
 import model.Model;
-import model.enums.Journey;
+
 import model.enums.Location;
 import model.enums.Rate;
 import model.enums.Vehicle;
-import model.reservation.Reservation;
 import model.reservation.Ticket;
 import model.reservation.Travel;
 
@@ -78,6 +76,8 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                 jLabel10 = new javax.swing.JLabel();
                 cbxvehicle = new javax.swing.JComboBox<>();
                 jLabel11 = new javax.swing.JLabel();
+                jLabel12 = new javax.swing.JLabel();
+                cbxrate = new javax.swing.JComboBox<>();
                 errorMsg = jLabel11;
 
                 jLabel2.setText("jLabel2");
@@ -132,6 +132,14 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                 jLabel11.setForeground(java.awt.Color.red);
                 jLabel11.setText("ERROR");
 
+                jLabel12.setText("tarifa:");
+
+                cbxrate.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                cbxrateActionPerformed(evt);
+                        }
+                });
+
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
@@ -155,32 +163,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                                                                                                 .addComponent(jSeparator1)))
                                                                                 .addGroup(layout.createSequentialGroup()
                                                                                                 .addGroup(layout.createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                false)
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(jLabel5)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(cbxfrom,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                194,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(jLabel7)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(cbxfromDate,
-                                                                                                                                                0,
-                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                                Short.MAX_VALUE))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(jLabel9)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(txtfpassengersNumber,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                71,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
                                                                                                                 .addGroup(layout.createSequentialGroup()
                                                                                                                                 .addComponent(chxoneWayOnly,
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
@@ -188,9 +171,46 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                                                                                 .addGap(4, 4, 4)
                                                                                                                                 .addComponent(jLabel11,
-                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                                Short.MAX_VALUE)))
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                148,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                                                false)
+                                                                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                                                                .addComponent(jLabel5)
+                                                                                                                                                .addPreferredGap(
+                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                                .addComponent(cbxfrom,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                194,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                                                                .addComponent(jLabel7)
+                                                                                                                                                .addPreferredGap(
+                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                                .addComponent(cbxfromDate,
+                                                                                                                                                                0,
+                                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                                                Short.MAX_VALUE))
+                                                                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                                                                .addComponent(jLabel12,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                39,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                .addGap(18, 18, 18)
+                                                                                                                                                .addComponent(cbxrate,
+                                                                                                                                                                0,
+                                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                                                Short.MAX_VALUE))
+                                                                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                                                                .addComponent(jLabel9)
+                                                                                                                                                .addPreferredGap(
+                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                                .addComponent(txtfpassengersNumber,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                71,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
                                                                                                 .addGap(18, 18, 18)
                                                                                                 .addGroup(layout.createParallelGroup(
                                                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,19 +248,17 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                                                                                                                                                 0,
                                                                                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                                                                                 Short.MAX_VALUE)))
-                                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                                                layout.createSequentialGroup()
-                                                                                                                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                                                                                                                .addComponent(btncancel,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                97,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                .addPreferredGap(
-                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                                                                .addComponent(btnconfirn,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                99,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                                                .addComponent(btncancel,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                97,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                .addGap(18, 18, 18)
+                                                                                                                                .addComponent(btnconfirn,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                99,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                .addGap(0, 0, Short.MAX_VALUE)))))
                                                                 .addContainerGap()));
                 layout.setVerticalGroup(
                                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,94 +323,37 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(13, 13, 13)
+                                                                .addPreferredGap(
+                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                                8, Short.MAX_VALUE)
+                                                                .addGroup(layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(jLabel12,
+                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                .addComponent(cbxrate,
+                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addPreferredGap(
+                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                                 .addGroup(layout.createParallelGroup(
                                                                                 javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(btncancel)
                                                                                 .addComponent(chxoneWayOnly)
+                                                                                .addComponent(jLabel11)
+                                                                                .addComponent(btncancel)
                                                                                 .addComponent(btnconfirn,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(jLabel11))
-                                                                .addContainerGap()));
+                                                                                                Short.MAX_VALUE))
+                                                                .addGap(6, 6, 6)));
 
                 pack();
         }// </editor-fold>//GEN-END:initComponents
 
-        public void initThings() {
-
-                errorMsg.setText("");
-
-                this.txtfpassengersNumber.setText("0");
-
-                cbxfromDate.setModel(
-                                new javax.swing.DefaultComboBoxModel<>(
-                                                (LocalDateTime[]) model.travelsDateFrom()
-                                                                .toArray(new LocalDateTime[model.travelsDateFrom()
-                                                                                .size()])));
-
-                cbxtoDate.setModel(
-                                new javax.swing.DefaultComboBoxModel<>(
-                                                (LocalDateTime[]) model.travelsDateFrom().toArray(
-                                                                new LocalDateTime[model.travelsDateFrom().size()])));
-
-                cbxfrom.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
-
-                cbxto.setModel(new javax.swing.DefaultComboBoxModel<>(
-                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
-
-                cbxvehicle.setModel(
-                                new javax.swing.DefaultComboBoxModel<>((Vehicle[]) model.vehicles()
-                                                .toArray(new Vehicle[model.vehicles().size()])));
-
-                // *=> Action Listeners
-
-                btncancel.addActionListener(e -> {
-                        this.ctx.get(0).setVisible(true);
-                        this.dispose();
-                });
-
-                btnconfirn.addActionListener(e -> {
-
-                        this.errorMsg.setText("");
-
-                        LocalDateTime dateFrom = (LocalDateTime) cbxfromDate.getSelectedItem();
-                        LocalDateTime dateTo = (LocalDateTime) cbxtoDate.getSelectedItem();
-
-                        Location from = (Location) cbxfrom.getSelectedItem();
-                        Location to = (Location) cbxto.getSelectedItem();
-
-                        if (from.equals(to)) {
-                                errorMsg.setText("Origen == destino");
-                        }
-
-                        if (dateTo.isAfter(dateFrom)) {
-                                errorMsg.setText("dateFrom > dateTo");
-                        }
-
-                        HashSet<Ticket> tickets = new HashSet<>();
-
-                        for (int i = 0; i < Integer.parseInt(this.txtfpassengersNumber.getText()); i++) {
-
-                                Travel departure = new Travel(dateFrom, 120, model.findJourneyByFromAndTo(from, to),
-                                                null);
-
-                                Travel comeback = new Travel(dateTo, 120, model.findJourneyByFromAndTo(from, to), null);
-                                ;
-
-                                tickets.add(new Ticket(null, null, departure,
-                                                !chxoneWayOnly.isEnabled() ? comeback : null));
-
-                        }
-
-                        this.ctx.add(this);
-                        this.setVisible(false);
-                        // TODOJFrame frame =
-                        // frame.setVisible(true);
-                });
-        }
+        private void cbxrateActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cbxrateActionPerformed
+                // TODO add your handling code here:
+        }// GEN-LAST:event_cbxrateActionPerformed
 
         private void btnconfirnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnconfirnActionPerformed
 
@@ -472,11 +433,13 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
         private javax.swing.JComboBox<Location> cbxto;
         private javax.swing.JComboBox<LocalDateTime> cbxtoDate;
         private javax.swing.JComboBox<Vehicle> cbxvehicle;
+        private javax.swing.JComboBox<Rate> cbxrate;
+        private JLabel errorMsg;
         private javax.swing.JCheckBox chxoneWayOnly;
         private javax.swing.JLabel jLabel1;
         private javax.swing.JLabel jLabel10;
-        private javax.swing.JLabel jLabel11; // ERROR
-        private JLabel errorMsg;
+        private javax.swing.JLabel jLabel11;
+        private javax.swing.JLabel jLabel12;
         private javax.swing.JLabel jLabel2;
         private javax.swing.JLabel jLabel3;
         private javax.swing.JLabel jLabel4;
@@ -488,4 +451,79 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
         private javax.swing.JSeparator jSeparator1;
         private javax.swing.JTextField txtfpassengersNumber;
         // End of variables declaration//GEN-END:variables
+
+        public void initThings() {
+
+                errorMsg.setText("");
+
+                this.txtfpassengersNumber.setText("0");
+
+                cbxfromDate.setModel(
+                                new javax.swing.DefaultComboBoxModel<>(
+                                                (LocalDateTime[]) model.travelsDateFrom()
+                                                                .toArray(new LocalDateTime[model.travelsDateFrom()
+                                                                                .size()])));
+
+                cbxtoDate.setModel(
+                                new javax.swing.DefaultComboBoxModel<>(
+                                                (LocalDateTime[]) model.travelsDateFrom().toArray(
+                                                                new LocalDateTime[model.travelsDateFrom().size()])));
+
+                cbxfrom.setModel(new javax.swing.DefaultComboBoxModel<>(
+                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
+
+                cbxto.setModel(new javax.swing.DefaultComboBoxModel<>(
+                                (Location[]) model.locations().toArray(new Location[model.locations().size()])));
+
+                cbxvehicle.setModel(
+                                new javax.swing.DefaultComboBoxModel<>((Vehicle[]) model.vehicles()
+                                                .toArray(new Vehicle[model.vehicles().size()])));
+
+                // *=> Action Listeners
+
+                btncancel.addActionListener(e -> {
+                        this.ctx.get(0).setVisible(true);
+                        this.dispose();
+                });
+
+                btnconfirn.addActionListener(e -> {
+
+                        this.errorMsg.setText("");
+
+                        LocalDateTime dateFrom = (LocalDateTime) cbxfromDate.getSelectedItem();
+                        LocalDateTime dateTo = (LocalDateTime) cbxtoDate.getSelectedItem();
+
+                        Location from = (Location) cbxfrom.getSelectedItem();
+                        Location to = (Location) cbxto.getSelectedItem();
+
+                        if (from.equals(to)) {
+                                errorMsg.setText("Origen == destino");
+                        }
+
+                        if (dateTo.isAfter(dateFrom)) {
+                                errorMsg.setText("dateFrom > dateTo");
+                        }
+
+                        HashSet<Ticket> tickets = new HashSet<>();
+
+                        for (int i = 0; i < Integer.parseInt(this.txtfpassengersNumber.getText()); i++) {
+
+                                Travel departure = new Travel(dateFrom, 120, model.findJourneyByFromAndTo(from, to),
+                                                null);
+
+                                Travel comeback = new Travel(dateTo, 120, model.findJourneyByFromAndTo(from, to), null);
+                                ;
+
+                                tickets.add(new Ticket(null, null, departure,
+                                                !chxoneWayOnly.isEnabled() ? comeback : null));
+
+                        }
+
+                        this.ctx.add(this);
+                        this.setVisible(false);
+                        // TODOJFrame frame =
+                        // frame.setVisible(true);
+                });
+
+        }
 }

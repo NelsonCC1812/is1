@@ -29,13 +29,15 @@
                   <Group type="102" attributes="0">
                       <Component id="txtmsg" min="-2" pref="245" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btncancel" min="-2" pref="81" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnpublish" min="-2" pref="112" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jSeparator1" pref="313" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -94,7 +96,10 @@
               <Component id="jScrollPane1" min="-2" pref="112" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="btnpublish" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnpublish" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="btncancel" alignment="3" max="32767" attributes="0"/>
+                  </Group>
                   <Component id="txtmsg" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="10" max="32767" attributes="0"/>
@@ -187,6 +192,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel6"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btncancel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancelActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

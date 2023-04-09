@@ -10,6 +10,7 @@ import model.company.ShippingCompany;
 import model.complaint.Complaint;
 import model.enums.Journey;
 import model.enums.Location;
+import model.enums.Rate;
 import model.enums.Vehicle;
 import model.passenger.Client;
 import model.passenger.Passenger;
@@ -194,4 +195,9 @@ public class Model {
         return Arrays.asList(Vehicle.values()).stream().filter(elm -> elm.name() == name).toList().get(0);
     }
 
+    // *=> rates
+
+    public List<Rate> rates() {
+        return Arrays.asList(Rate.values());
+    }
 }

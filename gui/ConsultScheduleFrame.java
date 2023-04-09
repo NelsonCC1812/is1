@@ -456,7 +456,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
                 errorMsg.setText("");
 
-                this.txtfpassengersNumber.setText("0");
+                this.txtfpassengersNumber.setText("1");
 
                 cbxfromDate.setModel(
                                 new javax.swing.DefaultComboBoxModel<>(
@@ -478,6 +478,9 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                 cbxvehicle.setModel(
                                 new javax.swing.DefaultComboBoxModel<>((Vehicle[]) model.vehicles()
                                                 .toArray(new Vehicle[model.vehicles().size()])));
+
+                cbxrate.setModel(new javax.swing.DefaultComboBoxModel<>((Rate[]) model.rates()
+                                .toArray(new Rate[model.rates().size()])));
 
                 // *=> Action Listeners
 

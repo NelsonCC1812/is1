@@ -12,6 +12,7 @@ import javax.swing.plaf.basic.BasicSliderUI.TrackListener;
 import model.Model;
 import model.enums.Journey;
 import model.enums.Location;
+import model.enums.Rate;
 import model.enums.Vehicle;
 import model.reservation.Reservation;
 import model.reservation.Ticket;
@@ -387,10 +388,8 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                         }
 
                         this.ctx.add(this);
-                        // this.setVisible(false);
-                        // JFrame frame = !chxoneWayOnly.isEnabled() ? new AddTicketsFrame(model, ctx,
-                        // tickets)
-                        // : new AddTicketsOneWayOnlyFrame(model, ctx, tickets);
+                        this.setVisible(false);
+                        // TODOJFrame frame =
                         // frame.setVisible(true);
                 });
         }

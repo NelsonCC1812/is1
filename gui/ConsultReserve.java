@@ -40,320 +40,225 @@ public class ConsultReserve extends javax.swing.JFrame {
          */
         @SuppressWarnings("unchecked")
         // <editor-fold defaultstate="collapsed" desc="Generated
-        // Code">//GEN-BEGIN:initComponents
-        private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-                jLabel1 = new javax.swing.JLabel();
-                jSeparator1 = new javax.swing.JSeparator();
-                jLabel2 = new javax.swing.JLabel();
-                txtflocalizator = new javax.swing.JTextField();
-                jSeparator2 = new javax.swing.JSeparator();
-                jLabel3 = new javax.swing.JLabel();
-                txtbooker = new javax.swing.JTextField();
-                jLabel4 = new javax.swing.JLabel();
-                txtvehicle = new javax.swing.JTextField();
-                jLabel5 = new javax.swing.JLabel();
-                jSeparator3 = new javax.swing.JSeparator();
-                jLabel6 = new javax.swing.JLabel();
-                jSeparator4 = new javax.swing.JSeparator();
-                jScrollPane1 = new javax.swing.JScrollPane();
-                lsttickets = new javax.swing.JList<>();
-                jScrollPane2 = new javax.swing.JScrollPane();
-                lstadditionalservices = new javax.swing.JList<>();
-                btnmodify = new javax.swing.JButton();
-                jSeparator5 = new javax.swing.JSeparator();
-                btnaccept = new javax.swing.JButton();
-                jLabel7 = new javax.swing.JLabel();
-                txtcost = new javax.swing.JTextField();
-                jLabel8 = new javax.swing.JLabel();
-                btnFind = new javax.swing.JButton();
-                txtmsg = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        txtflocalizator = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        txtbooker = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtvehicle = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lsttickets = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstadditionalservices = new javax.swing.JList<>();
+        btnmodify = new javax.swing.JButton();
+        jSeparator5 = new javax.swing.JSeparator();
+        btnaccept = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtcost = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        btnFind = new javax.swing.JButton();
+        txtmsg = new javax.swing.JLabel();
+        btncancel = new javax.swing.JButton();
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-                jLabel1.setText("Consultar reserva");
+        jLabel1.setText("Consultar reserva");
 
-                jLabel2.setText("Localizador:");
+        jLabel2.setText("Localizador:");
 
-                txtflocalizator.setText("localizador...");
-                txtflocalizator.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                txtflocalizatorActionPerformed(evt);
-                        }
-                });
+        txtflocalizator.setText("localizador...");
+        txtflocalizator.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtflocalizatorActionPerformed(evt);
+            }
+        });
 
-                jLabel3.setText("Reservante:");
+        jLabel3.setText("Reservante:");
 
-                txtbooker.setEditable(false);
-                txtbooker.setText("jTextField2");
+        txtbooker.setEditable(false);
+        txtbooker.setText("jTextField2");
 
-                jLabel4.setText("Vehiculo:");
+        jLabel4.setText("Vehiculo:");
 
-                txtvehicle.setEditable(false);
-                txtvehicle.setText("jTextField3");
+        txtvehicle.setEditable(false);
+        txtvehicle.setText("jTextField3");
 
-                jLabel5.setText("Billetes");
+        jLabel5.setText("Billetes");
 
-                jLabel6.setText("Servicios adicionales");
+        jLabel6.setText("Servicios adicionales");
 
-                lsttickets.setModel(new javax.swing.AbstractListModel<String>() {
-                        String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        lsttickets.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lsttickets);
 
-                        public int getSize() {
-                                return strings.length;
-                        }
+        lstadditionalservices.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(lstadditionalservices);
 
-                        public String getElementAt(int i) {
-                                return strings[i];
-                        }
-                });
-                jScrollPane1.setViewportView(lsttickets);
+        btnmodify.setText("Modificar");
+        btnmodify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmodifyActionPerformed(evt);
+            }
+        });
 
-                lstadditionalservices.setModel(new javax.swing.AbstractListModel<String>() {
-                        String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        btnaccept.setText("Aceptar");
 
-                        public int getSize() {
-                                return strings.length;
-                        }
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setText("Coste total:");
 
-                        public String getElementAt(int i) {
-                                return strings[i];
-                        }
-                });
-                jScrollPane2.setViewportView(lstadditionalservices);
+        txtcost.setEditable(false);
+        txtcost.setText("jTextField1");
 
-                btnmodify.setText("Modificar");
-                btnmodify.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnmodifyActionPerformed(evt);
-                        }
-                });
+        jLabel8.setText("€");
 
-                btnaccept.setText("Aceptar");
+        btnFind.setText("Buscar");
 
-                jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-                jLabel7.setText("Coste total:");
+        txtmsg.setText("jLabel9");
 
-                txtcost.setEditable(false);
-                txtcost.setText("jTextField1");
+        btncancel.setText("Cancelar");
+        btncancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncancelActionPerformed(evt);
+            }
+        });
 
-                jLabel8.setText("€");
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtflocalizator, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnFind)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtbooker))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtvehicle))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator4))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtcost, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel8)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addComponent(jSeparator5))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtmsg, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btncancel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnmodify, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnaccept, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtflocalizator, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFind))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtbooker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtvehicle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel6)
+                    .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtcost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnmodify, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnaccept, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtmsg))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btncancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(5, 5, 5)))
+                .addContainerGap())
+        );
 
-                btnFind.setText("Buscar");
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
-                txtmsg.setText("jLabel9");
-
-                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-                getContentPane().setLayout(layout);
-                layout.setHorizontalGroup(
-                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(jSeparator2)
-                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                .addContainerGap()
-                                                                                                .addGroup(layout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(jLabel2)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(txtflocalizator,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                109,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(btnFind)
-                                                                                                                                .addGap(0, 0, Short.MAX_VALUE))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(jLabel1)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(jSeparator1))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(jLabel3)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(txtbooker))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(jLabel4,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                60,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(txtvehicle))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(jLabel5,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                38,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(jSeparator3,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                137,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addGap(18, 18, 18)
-                                                                                                                                .addComponent(jLabel6)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                .addComponent(jSeparator4))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(jScrollPane1,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                181,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addGap(18, 18, 18)
-                                                                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                                .addComponent(jScrollPane2)
-                                                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                                                .addComponent(jLabel7)
-                                                                                                                                                                .addPreferredGap(
-                                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                                                .addComponent(txtcost,
-                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                                105,
-                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                                .addPreferredGap(
-                                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                                                                                .addComponent(jLabel8)
-                                                                                                                                                                .addGap(0, 15, Short.MAX_VALUE))))))
-                                                                                .addComponent(jSeparator5))
-                                                                .addContainerGap())
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
-                                                                .createSequentialGroup()
-                                                                .addContainerGap()
-                                                                .addComponent(txtmsg,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                179,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                Short.MAX_VALUE)
-                                                                .addComponent(btnmodify,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                85,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(btnaccept,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                85,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)));
-                layout.setVerticalGroup(
-                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                                .addContainerGap()
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addComponent(jSeparator1,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                10,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(jLabel1))
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                .addGroup(layout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                .addComponent(jLabel2)
-                                                                                                                .addComponent(txtflocalizator,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addComponent(btnFind))
-                                                                                                .addPreferredGap(
-                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                .addComponent(jSeparator2,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                10,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addPreferredGap(
-                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                                .addGroup(layout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                .addComponent(jLabel3)
-                                                                                                                .addComponent(txtbooker,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGap(18, 18, 18)
-                                                                                                .addGroup(layout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                                .addComponent(jLabel4)
-                                                                                                                .addComponent(txtvehicle,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGap(27, 27, 27)
-                                                                                                .addGroup(layout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                .addComponent(jLabel5)
-                                                                                                                .addComponent(jSeparator3,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                10,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                                .addComponent(jLabel6)
-                                                                                .addComponent(jSeparator4,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                10,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(jScrollPane1,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(jScrollPane2,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                9, Short.MAX_VALUE)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(jLabel7)
-                                                                                .addComponent(txtcost,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(jLabel8))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jSeparator5,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                10,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(btnmodify,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                32,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(btnaccept,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                32,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(txtmsg))
-                                                                .addContainerGap()));
-
-                pack();
-        }// </editor-fold>//GEN-END:initComponents
+    private void btncancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btncancelActionPerformed
 
         private void txtflocalizatorActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtflocalizatorActionPerformed
                 // TODO add your handling code here:
@@ -411,31 +316,32 @@ public class ConsultReserve extends javax.swing.JFrame {
                 });
         }
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JButton btnFind;
-        private javax.swing.JButton btnaccept;
-        private javax.swing.JButton btnmodify;
-        private javax.swing.JLabel jLabel1;
-        private javax.swing.JLabel jLabel2;
-        private javax.swing.JLabel jLabel3;
-        private javax.swing.JLabel jLabel4;
-        private javax.swing.JLabel jLabel5;
-        private javax.swing.JLabel jLabel6;
-        private javax.swing.JLabel jLabel7;
-        private javax.swing.JLabel jLabel8;
-        private javax.swing.JScrollPane jScrollPane1;
-        private javax.swing.JScrollPane jScrollPane2;
-        private javax.swing.JSeparator jSeparator1;
-        private javax.swing.JSeparator jSeparator2;
-        private javax.swing.JSeparator jSeparator3;
-        private javax.swing.JSeparator jSeparator4;
-        private javax.swing.JSeparator jSeparator5;
-        private javax.swing.JList<String> lstadditionalservices;
-        private javax.swing.JList<String> lsttickets;
-        private javax.swing.JTextField txtbooker;
-        private javax.swing.JTextField txtcost;
-        private javax.swing.JTextField txtflocalizator;
-        private javax.swing.JLabel txtmsg;
-        private javax.swing.JTextField txtvehicle;
-        // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFind;
+    private javax.swing.JButton btnaccept;
+    private javax.swing.JButton btncancel;
+    private javax.swing.JButton btnmodify;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JList<String> lstadditionalservices;
+    private javax.swing.JList<String> lsttickets;
+    private javax.swing.JTextField txtbooker;
+    private javax.swing.JTextField txtcost;
+    private javax.swing.JTextField txtflocalizator;
+    private javax.swing.JLabel txtmsg;
+    private javax.swing.JTextField txtvehicle;
+    // End of variables declaration//GEN-END:variables
 }

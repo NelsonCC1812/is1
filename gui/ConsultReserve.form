@@ -72,7 +72,7 @@
                                       <Component id="txtcost" min="-2" pref="105" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -86,6 +86,8 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txtmsg" min="-2" pref="179" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="btncancel" min="-2" pref="86" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnmodify" min="-2" pref="85" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btnaccept" min="-2" pref="85" max="-2" attributes="0"/>
@@ -143,10 +145,16 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSeparator5" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnmodify" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="btnaccept" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="txtmsg" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnmodify" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="btnaccept" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="txtmsg" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="btncancel" max="32767" attributes="0"/>
+                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -305,6 +313,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel9"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btncancel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancelActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

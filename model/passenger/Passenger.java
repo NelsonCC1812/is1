@@ -2,8 +2,6 @@ package model.passenger;
 
 import static model.auxclasses.Auxiliar.isEmail;
 
-import model.auxclasses.InvalidEmailException;;
-
 public class Passenger {
 
     // *=> fields
@@ -11,19 +9,18 @@ public class Passenger {
     private final int id = nextId++;
     private static int nextId = 0;
 
-    private final String name;
-    private final String lastName;
+    private String name;
+    private String lastName;
     private String phoneNumber;
     private String email;
 
     // *=> constructors
 
-    public Passenger(String name, String lastName, String email, String phoneNumber) throws InvalidEmailException {
+    public Passenger(String name, String lastName, String email, String phoneNumber) {
         this.name = name;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        if (!this.setEmail(email))
-            throw new InvalidEmailException(email);
+        this.email = email;
     }
 
     // *=> getters & setters
@@ -44,16 +41,37 @@ public class Passenger {
         return this.name;
     }
 
+    public void name(String name) {
+        this.name = name;
+    }
+
     public String lastName() {
         return this.lastName;
+    }
+
+    public void lastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String phoneNumber() {
         return this.phoneNumber;
     }
 
+    public void phoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public String email() {
         return this.email;
+    }
+
+    public void email(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 
     @Override

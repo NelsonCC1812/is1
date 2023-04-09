@@ -1,7 +1,7 @@
 package gui;
 
 import java.time.LocalDateTime;
-
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -13,6 +13,7 @@ import model.Model;
 import model.enums.Location;
 import model.enums.Rate;
 import model.enums.Vehicle;
+import model.passenger.Passenger;
 import model.reservation.Ticket;
 import model.reservation.Travel;
 
@@ -486,6 +487,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
                 btncancel.addActionListener(e -> {
                         this.ctx.get(0).setVisible(true);
+                        this.ctx.remove(ctx.size() - 1);
                         this.dispose();
                 });
 
@@ -507,7 +509,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                 errorMsg.setText("dateFrom > dateTo");
                         }
 
-                        HashSet<Ticket> tickets = new HashSet<>();
+                        List<Ticket> tickets = new ArrayList<>();
 
                         for (int i = 0; i < Integer.parseInt(this.txtfpassengersNumber.getText()); i++) {
 
@@ -517,15 +519,18 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                 Travel comeback = new Travel(dateTo, 120, model.findJourneyByFromAndTo(from, to), null);
                                 ;
 
-                                tickets.add(new Ticket(null, null, departure,
+                                tickets.add(new Ticket(
+                                                new Passenger("pasajero " + i, "apellidos...", "email...",
+                                                                "telefono..."),
+                                                null, departure,
                                                 !chxoneWayOnly.isEnabled() ? comeback : null));
 
                         }
 
                         this.ctx.add(this);
                         this.setVisible(false);
-                        // TODOJFrame frame =
-                        // frame.setVisible(true);
+                        JFrame frame = new AddPassenguersFrame(model, ctx, tickets);
+                        frame.setVisible(true);
                 });
 
         }

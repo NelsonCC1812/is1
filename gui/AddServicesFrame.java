@@ -4,9 +4,11 @@
  */
 package gui;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 import model.Model;
 import model.reservation.Ticket;
@@ -23,6 +25,8 @@ public class AddServicesFrame extends javax.swing.JFrame {
     private List<JFrame> ctx;
     private List<Ticket> tickets;
 
+    private List<Service> services;
+
     /**
      * Creates new form AddServicesFrame
      */
@@ -34,6 +38,7 @@ public class AddServicesFrame extends javax.swing.JFrame {
         this.model = model;
         this.ctx = ctx;
         this.tickets = tickets;
+        this.services = new ArrayList<>();
         initComponents();
         initThings();
     }
@@ -71,6 +76,7 @@ public class AddServicesFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         btnconfirm = new javax.swing.JButton();
         btncancel = new javax.swing.JButton();
+        txtitemPrice = jTextField4;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,7 +93,7 @@ public class AddServicesFrame extends javax.swing.JFrame {
         jLabel5.setText("coste:");
 
         jTextField4.setEditable(false);
-        jTextField4.setText("jTextField4");
+        jTextField4.setText("O.o");
 
         jLabel6.setText("Servicios añadidos");
 
@@ -387,6 +393,8 @@ public class AddServicesFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JList<String> lstaddedServices;
     private javax.swing.JTextField txtcost;
+
+    private JTextField txtitemPrice;
     // End of variables declaration//GEN-END:variables
 
     private void initThings() {
@@ -396,19 +404,29 @@ public class AddServicesFrame extends javax.swing.JFrame {
                         model.getServiceTypes().toArray(new String[model.getServiceTypes().size()])));
         updateCbxname();
         updateCbxService();
+        updatetxtitemPrice();
+        updateLstaddedServices();
 
         cbxtype.addItemListener(e -> {
             updateCbxname();
             updateCbxService();
+            updatetxtitemPrice();
         });
 
         cbxname.addItemListener(e -> {
             updateCbxService();
-
+            updatetxtitemPrice();
         });
 
         cbxservice.addItemListener(e -> {
+            updatetxtitemPrice();
+        });
 
+        btnaddService.addActionListener(e -> {
+
+            services.add((Service) cbxservice.getSelectedItem());
+
+            updateLstaddedServices();
         });
     }
 
@@ -422,10 +440,34 @@ public class AddServicesFrame extends javax.swing.JFrame {
     }
 
     private void updateCbxService() {
-
         cbxservice.setModel(
                 new javax.swing.DefaultComboBoxModel<>(
                         ((ServiceProvider) cbxname.getSelectedItem()).services().toArray(
                                 new Service[((ServiceProvider) cbxname.getSelectedItem()).services().size()])));
+
+    }
+
+    private void updatetxtitemPrice() {
+        txtitemPrice.setText(Double.toString(((Service) cbxservice.getSelectedItem()).cost()));
+    }
+
+    private void updateLstaddedServices() {
+        lstaddedServices.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = (String[]) services.stream().map(e -> e.description()).toList()
+                    .toArray(new String[services.size()]);
+
+            public int getSize() {
+                return strings.length;
+            }
+
+            public String getElementAt(int i) {
+                return strings[i];
+            }
+        });
+
+        txtcost.setText(services.size() > 0
+                ? Double.toString(services.stream().map(elm -> elm.cost()).reduce((sum, acc) -> sum + acc).get())
+                : "0");
+
     }
 }

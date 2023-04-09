@@ -16,6 +16,7 @@ import model.passenger.Client;
 import model.passenger.Passenger;
 import model.reservation.Reservation;
 import model.reservation.Travel;
+import model.service.Service;
 import model.service.ServiceProvider;
 
 public class Model {
@@ -168,6 +169,10 @@ public class Model {
 
     public List<ServiceProvider> findServiceProvidersByName(String name) {
         return this.serviceProviders.stream().filter(elm -> elm.name().equals(name)).toList();
+    }
+
+    public List<String> getServiceTypes() {
+        return this.serviceProviders.stream().map(elm -> elm.type()).distinct().toList();
     }
 
     // *=> locations

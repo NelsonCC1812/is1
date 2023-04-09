@@ -37,13 +37,18 @@ public class ServiceProvider {
     }
 
     public List<Service> services() {
-        return this.services();
+        return this.services;
     }
 
     public Service addService(double cost, String description) {
         Service service = new Service(this, cost, description);
         this.services.add(service);
         return service;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 
     @Override

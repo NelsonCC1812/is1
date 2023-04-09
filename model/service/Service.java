@@ -42,6 +42,12 @@ public class Service {
     }
 
     @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return this.description();
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Service))
             return false;

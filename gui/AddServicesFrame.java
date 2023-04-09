@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 
 import model.Model;
 import model.reservation.Ticket;
+import model.service.Service;
+import model.service.ServiceProvider;
 
 /**
  *
@@ -103,15 +105,6 @@ public class AddServicesFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(lstaddedServices);
 
         jLabel7.setText("€");
-
-        cbxtype.setModel(
-                new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbxname.setModel(
-                new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbxservice.setModel(
-                new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnaddService.setText("Añadir servicio");
         btnaddService.addActionListener(new java.awt.event.ActionListener() {
@@ -375,8 +368,8 @@ public class AddServicesFrame extends javax.swing.JFrame {
     private javax.swing.JButton btncancel;
     private javax.swing.JButton btnconfirm;
     private javax.swing.JButton btndeleteService;
-    private javax.swing.JComboBox<String> cbxname;
-    private javax.swing.JComboBox<String> cbxservice;
+    private javax.swing.JComboBox<ServiceProvider> cbxname;
+    private javax.swing.JComboBox<Service> cbxservice;
     private javax.swing.JComboBox<String> cbxtype;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -398,5 +391,41 @@ public class AddServicesFrame extends javax.swing.JFrame {
 
     private void initThings() {
 
+        cbxtype.setModel(
+                new javax.swing.DefaultComboBoxModel<>(
+                        model.getServiceTypes().toArray(new String[model.getServiceTypes().size()])));
+        updateCbxname();
+        updateCbxService();
+
+        cbxtype.addItemListener(e -> {
+            updateCbxname();
+            updateCbxService();
+        });
+
+        cbxname.addItemListener(e -> {
+            updateCbxService();
+
+        });
+
+        cbxservice.addItemListener(e -> {
+
+        });
+    }
+
+    private void updateCbxname() {
+        cbxname.setModel(new javax.swing.DefaultComboBoxModel<>(
+                model.findServiceProvidersByType((String) cbxtype.getSelectedItem())
+                        .toArray(
+                                new ServiceProvider[model.findServiceProvidersByType((String) cbxtype.getSelectedItem())
+                                        .size()])));
+
+    }
+
+    private void updateCbxService() {
+
+        cbxservice.setModel(
+                new javax.swing.DefaultComboBoxModel<>(
+                        ((ServiceProvider) cbxname.getSelectedItem()).services().toArray(
+                                new Service[((ServiceProvider) cbxname.getSelectedItem()).services().size()])));
     }
 }

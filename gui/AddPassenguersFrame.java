@@ -457,7 +457,7 @@ public class AddPassenguersFrame extends javax.swing.JFrame {
                 });
 
                 btncancel.addActionListener(e -> {
-                        this.ctx.get(0).setVisible(true);
+                        this.ctx.get(ctx.size()-1).setVisible(true);
                         this.ctx.remove(ctx.size() - 1);
                         this.dispose();
                 });

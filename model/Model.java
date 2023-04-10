@@ -138,7 +138,8 @@ public class Model {
     }
 
     public Reservation findReservationById(int id) {
-        return this.reservations.stream().filter(elm -> elm.id() == id).toList().get(0);
+        List<Reservation> ress = this.reservations.stream().filter(elm -> elm.id() == id).toList();
+        return ress.size() > 0 ? ress.get(0) : null;
     }
 
     public List<Reservation> findReservationsByBooker(Passenger pass) {

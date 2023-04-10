@@ -31,7 +31,7 @@ public enum Bonus {
     // *=> methods
 
     public static double applyDeductions(Set<Bonus> bonus, double quantify) {
-        return round(quantify *
-                bonus.stream().map(b -> b.deduction).reduce((double) 1, (acc, sum) -> acc * (1 - sum)));
+        return bonus != null ? round(quantify *
+                bonus.stream().map(b -> b.deduction).reduce((double) 1, (acc, sum) -> acc * (1 - sum))) : quantify;
     }
 }

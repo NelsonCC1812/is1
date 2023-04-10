@@ -37,9 +37,9 @@ public class Reservation {
         if (this.vehicle != null)
             this.vehicle = vehicle;
 
-        if (this.additionalServices != null) {
+        if (additionalServices.size() > 0)
             this.additionalServices = additionalServices;
-        } else
+        else
             this.additionalServices.add(Service.NULL());
 
         this.isCheckedIn = false;
@@ -96,7 +96,7 @@ public class Reservation {
     }
 
     public Set<Service> additionalServices() {
-        return additionalServices;
+        return additionalServices.contains(Service.NULL()) ? new HashSet<>() : additionalServices;
     }
 
     public boolean addAdditionalService(Service service) {
@@ -117,6 +117,7 @@ public class Reservation {
 
     // *=> methods
     public double calcCost() {
+
         return this.tickets().stream().map(Ticket::cost).reduce((acc, sum) -> acc + sum).get() +
                 this.additionalServices.stream().map(Service::cost).reduce((acc, sum) -> acc + sum).get()
                 + vehicle.cost();

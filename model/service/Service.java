@@ -7,6 +7,8 @@ public class Service {
     private final int id = nextId++;
     private static int nextId = 0;
 
+    private static Service nuller = new Service(null, 0, null);
+
     private final ServiceProvider serviceProvider;
     private final double cost;
     private final String description;
@@ -38,7 +40,7 @@ public class Service {
     }
 
     public static Service NULL() {
-        return new Service(null, 0, null);
+        return nuller;
     }
 
     @Override

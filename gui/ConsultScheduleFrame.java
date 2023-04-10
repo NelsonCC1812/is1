@@ -501,6 +501,8 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                         Location from = (Location) cbxfrom.getSelectedItem();
                         Location to = (Location) cbxto.getSelectedItem();
 
+                        Rate rate = (Rate) cbxrate.getSelectedItem();
+
                         if (from.equals(to)) {
                                 errorMsg.setText("Origen == destino");
                         }
@@ -514,9 +516,9 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                         for (int i = 0; i < Integer.parseInt(this.txtfpassengersNumber.getText()); i++) {
 
                                 Travel departure = new Travel(dateFrom, 120, model.findJourneyByFromAndTo(from, to),
-                                                null);
+                                                rate);
 
-                                Travel comeback = new Travel(dateTo, 120, model.findJourneyByFromAndTo(from, to), null);
+                                Travel comeback = new Travel(dateTo, 120, model.findJourneyByFromAndTo(from, to), rate);
                                 ;
 
                                 tickets.add(new Ticket(
@@ -529,7 +531,8 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
                         this.ctx.add(this);
                         this.setVisible(false);
-                        JFrame frame = new AddPassenguersFrame(model, ctx, tickets);
+                        JFrame frame = new AddPassenguersFrame(model, ctx, tickets,
+                                        (Vehicle) cbxvehicle.getSelectedItem());
                         frame.setVisible(true);
                 });
 

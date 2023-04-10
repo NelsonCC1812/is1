@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import model.Model;
+import model.enums.Rate;
+import model.enums.Vehicle;
 import model.passenger.Passenger;
 import model.reservation.Ticket;
 
@@ -25,6 +27,7 @@ public class AddPassenguersFrame extends javax.swing.JFrame {
         private Model model;
         private List<JFrame> ctx;
         private List<Ticket> tickets;
+        private Vehicle vehicle;
 
         /**
          * Creates new form AddPassenguers
@@ -33,10 +36,11 @@ public class AddPassenguersFrame extends javax.swing.JFrame {
                 initComponents();
         }
 
-        public AddPassenguersFrame(Model model, List<JFrame> ctx, List<Ticket> tickets) {
+        public AddPassenguersFrame(Model model, List<JFrame> ctx, List<Ticket> tickets, Vehicle vehicle) {
                 this.model = model;
                 this.ctx = ctx;
                 this.tickets = tickets;
+                this.vehicle = vehicle;
                 initComponents();
                 initThings();
         }
@@ -471,7 +475,7 @@ public class AddPassenguersFrame extends javax.swing.JFrame {
 
                 btnaccept.addActionListener(e -> {
                         ctx.add(this);
-                        JFrame frame = new AddServicesFrame(model, ctx, tickets);
+                        JFrame frame = new AddServicesFrame(model, ctx, tickets, vehicle);
                         this.setVisible(false);
                         frame.setVisible(true);
                 });

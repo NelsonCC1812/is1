@@ -39,3 +39,16 @@ TODO
 TODO: 3 casos de uso principales
 TODO: Compilar
 TODO: video
+
+
+// *=> Modificaciones en el diagrama
+Pasajero a tickets es unidireccional
+Reserva a Passenger es unidireccional
+Los Ids no aparecen en el diagrama
+Enumerados solo se enlazan con asociaciones (Bonus)
+
+
+
+
+Quitar addTickets de la clase reserva
+Passenger da datos a complaint

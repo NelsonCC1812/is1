@@ -491,6 +491,11 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                         this.dispose();
                 });
 
+                chxoneWayOnly.addActionListener(e -> {
+                        if (chxoneWayOnly.isSelected())
+                                cbxtoDate.setEnabled(false);
+                });
+
                 btnconfirn.addActionListener(e -> {
 
                         this.errorMsg.setText("");
@@ -505,10 +510,12 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
 
                         if (from.equals(to)) {
                                 errorMsg.setText("Origen == destino");
+                                return;
                         }
 
-                        if (dateTo.isAfter(dateFrom)) {
+                        if (chxoneWayOnly.isSelected() && dateTo.isAfter(dateFrom)) {
                                 errorMsg.setText("dateFrom > dateTo");
+                                return;
                         }
 
                         List<Ticket> tickets = new ArrayList<>();

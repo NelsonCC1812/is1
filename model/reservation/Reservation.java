@@ -71,10 +71,6 @@ public class Reservation {
         return tickets;
     }
 
-    public boolean addTicket(Ticket ticket) {
-        return this.tickets.add(ticket);
-    }
-
     public boolean removeTicket(Ticket ticket) {
         return this.tickets.remove(ticket);
     }

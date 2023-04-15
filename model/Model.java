@@ -16,7 +16,6 @@ import model.passenger.Client;
 import model.passenger.Passenger;
 import model.reservation.Reservation;
 import model.reservation.Travel;
-import model.service.Service;
 import model.service.ServiceProvider;
 
 public class Model {

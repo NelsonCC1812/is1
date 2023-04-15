@@ -11,6 +11,7 @@ import javax.swing.JTextArea;
 
 import model.Model;
 import model.complaint.Complaint;
+import model.passenger.Passenger;
 
 /**
  *
@@ -251,8 +252,10 @@ public class AddComplaintFrame extends javax.swing.JFrame {
                                 txtmsg.setText("");
 
                                 model.addComplaint(new Complaint(
-                                                txtfname.getText().trim(),
-                                                txtfemail.getText().trim(),
+                                                new Passenger(txtfname.getText().trim(),
+                                                                txtflastName.getText().trim(),
+                                                                txtfemail.getText().trim(),
+                                                                null),
                                                 jTextArea1.getText().trim()));
 
                                 this.ctx.get(0).setVisible(true);

@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import model.auxclasses.Auxiliar;
 import model.auxclasses.InvalidEmailException;
+import model.passenger.Passenger;
 
 public class Complaint {
 
@@ -15,11 +16,13 @@ public class Complaint {
     private String name;
     private String email;
     private String comment;
+    private Passenger passenger;
     private LocalDateTime date;
 
     // *=> constructors
 
-    public Complaint(String name, String email, String comment) throws InvalidEmailException {
+    public Complaint(Passenger passenger, String comment) throws InvalidEmailException {
+        this.passenger = passenger;
         this.name = name;
         if (!email(email))
             throw new InvalidEmailException(email);

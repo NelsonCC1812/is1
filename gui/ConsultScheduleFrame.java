@@ -517,6 +517,11 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                 return;
                         }
 
+                        if (!chxoneWayOnly.isSelected() && dateTo.isEqual(dateFrom)) {
+                                errorMsg.setText("dateFrom == dateTo");
+                                return;
+                        }
+
                         List<Ticket> tickets = new ArrayList<>();
 
                         for (int i = 0; i < Integer.parseInt(this.txtfpassengersNumber.getText()); i++) {

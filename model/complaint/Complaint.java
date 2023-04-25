@@ -24,8 +24,7 @@ public class Complaint {
     public Complaint(Passenger passenger, String comment) throws InvalidEmailException {
         this.passenger = passenger;
         this.name = name;
-        if (!email(email))
-            throw new InvalidEmailException(email);
+        this.email = email;
         this.comment = comment;
         this.date = LocalDateTime.now();
     }

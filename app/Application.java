@@ -10,6 +10,7 @@ import model.complaint.Complaint;
 import model.enums.Journey;
 import model.enums.Rate;
 import model.passenger.Client;
+import model.passenger.Passenger;
 import model.reservation.Travel;
 import model.service.ServiceProvider;
 
@@ -34,14 +35,16 @@ public class Application {
         // complaints
 
         try {
-            model.addComplaint(new Complaint("Señor feliz", "sirfeliz@siuuu.si", "Ha estado genial"));
+            model.addComplaint(
+                    new Complaint(new Passenger("Señor feliz", null, "sirfeliz@siuuu.si", null), "Ha estado genial"));
         } catch (InvalidEmailException e) {
             System.out.println("El email no se ha podido crear");
         }
 
         try {
             model.addComplaint(
-                    new Complaint("Señor enfadado", "estoy_molesto@aaaaa.com", "No me ha gustado nada"));
+                    new Complaint(new Passenger("Señor enfadado", null, "estoy_molesto@aaaaa.com", null),
+                            "No me ha gustado nada"));
         } catch (InvalidEmailException e) {
             System.out.println("El email no se ha podido crear");
         }

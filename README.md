@@ -1,3 +1,8 @@
+## Para correr el programa desde el jar (desde la terminal)
+```
+java -jar myProject.jar
+```
+
 # En este documento pondre comentarios y apreciaciones del código, decisiones de diseño y detalles.
 
 ## Comentarios  

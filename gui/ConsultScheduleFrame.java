@@ -492,8 +492,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                 });
 
                 chxoneWayOnly.addActionListener(e -> {
-                        if (chxoneWayOnly.isSelected())
-                                cbxtoDate.setEnabled(false);
+                        cbxtoDate.setEnabled(!chxoneWayOnly.isSelected());
                 });
 
                 btnconfirn.addActionListener(e -> {

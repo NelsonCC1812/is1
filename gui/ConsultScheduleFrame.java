@@ -512,7 +512,7 @@ public class ConsultScheduleFrame extends javax.swing.JFrame {
                                 return;
                         }
 
-                        if (chxoneWayOnly.isSelected() && dateTo.isAfter(dateFrom)) {
+                        if (!chxoneWayOnly.isSelected() && dateTo.isAfter(dateFrom)) {
                                 errorMsg.setText("dateFrom > dateTo");
                                 return;
                         }
